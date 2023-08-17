@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 /*
  * Globals
  */
@@ -8,21 +10,6 @@ a:hover {
   color: #fff;
 }
 
-/* Custom default button */
-.btn-default {
-  color: #fff;
-  text-shadow: none;
-  /* Prevent inheritence from `body` */
-  background-color: transparent;
-  border: 2px solid #fff;
-  border-radius: 20px;
-  padding: 0.5rem 2rem;
-}
-
-.btn-default:hover,
-.btn-default:focus {
-  background-color: rgba(255, 255, 255, 0.3);
-}
 
 /*
  * Base structure
@@ -33,174 +20,59 @@ body {
 }
 
 body {
-  background: url(../img/cover.jpg) no-repeat center center fixed;
-  background-size: cover;
-  color: #fff;
+  background-color: #ded7cd;
+  color: #000;
   text-align: center;
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  overflow: hidden;
 }
 
-/* Extra markup and styles for table-esque vertical and horizontal centering */
-.site-wrapper {
-  display: table;
+#container {
   width: 100%;
   height: 100%;
-  /* For at least Firefox */
-  min-height: 100%;
-  /* background: rgba(160, 162, 169, 0.5); */
-  /* box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5); } */
+  display: flex;
+  flex-direction: column;
+  /* background-color: #cec7bd; */
+}
 
-  .site-wrapper-inner {
-    display: table-cell;
-    vertical-align: top;
-  }
+#text-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
 
-  .cover-container {
-    margin-right: auto;
-    margin-left: auto;
-  }
+.title {
+  font-size: 2rem;
+  font-weight: 300;
+}
 
-  /* Padding for spacing */
-  .inner {
-    padding: 30px;
-  }
+.zaia-img {
+  height: 30px;
+  width: 30px;
+}
 
-  /*
- * Header
- */
-  .masthead-brand {
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
+.subtitle {
+  font-size: .6rem;
+  font-weight: 100;
+}
 
-  .nav-masthead {
-    text-align: center;
-    display: block;
-  }
+.soon {
+  font-size: 5rem;
+  font-weight: 100;
+  line-height: 1;
+  padding-bottom: 30px;
+}
 
-  .nav-masthead .nav-link {
-    display: inline-block;
-  }
-
-  @media (min-width: 768px) {
-    .masthead-brand {
-      float: left;
-    }
-
-    .nav-masthead {
-      float: right;
-    }
-  }
-
-  /*
- * Cover
- */
-  .cover {
-    padding: 0 20px;
-  }
-
-  .cover .btn-notify {
-    padding: 10px 60px;
-    font-weight: 500;
-    text-transform: uppercase;
-    border-radius: 40px;
-  }
-
-  .cover-heading {
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: -30px;
-    font-size: 8rem;
-    margin-top: 26rem;
-    color: #fff;
-    border-radius: 15px;
-  }
-
-  @media (min-width: 768px) {
-    .cover-heading {
-      font-size: 3.4rem;
-      letter-spacing: 15px;
-    }
-  }
-
-  .cover-copy {
-    max-width: 500px;
-    margin: 0 auto 3rem;
-  }
-
-  /*
- * Footer
- */
-  .mastfoot {
-    color: #999;
-    /* IE8 proofing */
-    color: rgba(255, 255, 255, 0.5);
-  }
-
-  /*
- * Subscribe modal box
- */
-  #subscribeModal .modal-content {
-    background-color: #303546;
-    color: #fff;
-    text-align: left;
-  }
-
-  #subscribeModal .modal-header,
-  #subscribeModal .modal-footer {
-    border: 0;
-  }
-
-  #subscribeModal .close {
-    color: #fff;
-  }
-
-  #subscribeModal .form-control {
-    margin-top: 1rem;
-    background: rgba(0, 0, 0, 0.4);
-    color: #fff;
-  }
-
-  #subscribeModal .form-control:focus {
-    border-color: #49506a;
-  }
-
-  /*
- * Affix and center
- */
-  @media (min-width: 768px) {
-
-    /* Pull out the header and footer */
-    .masthead {
-      position: fixed;
-      top: 0;
-    }
-
-    .mastfoot {
-      position: fixed;
-      bottom: 0;
-    }
-
-    /* Start the vertical centering */
-    .site-wrapper-inner {
-      vertical-align: middle;
-    }
-
-    /* Handle the widths */
-    .masthead,
-    .mastfoot,
-    .cover-container {
-      width: 100%;
-      /* Must be percentage or pixels for horizontal alignment */
-    }
-  }
-
-  @media (min-width: 992px) {
-
-    .masthead,
-    .mastfoot,
-    .cover-container {
-      width: 1060px;
-    }
-  }
+#login-video {
+  object-fit: cover;
+  width: 100vw;
+  height: 110%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
