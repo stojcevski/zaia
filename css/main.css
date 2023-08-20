@@ -41,8 +41,8 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-items: center;
-  align-items: center;
+  justify-items: end;
+  align-items: end;
 }
 
 .title {
@@ -51,8 +51,8 @@ body {
 }
 
 .zaia-img {
-  height: 30px;
-  width: 30px;
+  height: 530px;
+  width: 530px;
 }
 
 .subtitle {
