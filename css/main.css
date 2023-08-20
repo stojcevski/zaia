@@ -101,4 +101,9 @@ body {
   #text-wrapper {
     gap: 190px;
   }
+
+  #container {
+
+    margin: 2rem;
+  }
 }
