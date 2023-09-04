@@ -74,6 +74,8 @@ body {
   font-size: 5rem;
   font-weight: 100;
   line-height: 1;
+  color: #000;
+  opacity: 60%;
 }
 
 #login-video {
@@ -98,5 +100,10 @@ body {
 
   #text-wrapper {
     gap: 190px;
+  }
+
+  #container {
+
+    margin: 2rem;
   }
 }
