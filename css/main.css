@@ -102,6 +102,17 @@ body {
   z-index: -1;
 }
 
+#social-group {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.social {
+  color: #fafaf95d;
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 600px) {
   .title {
     font-size: 5rem;
