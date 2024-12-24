@@ -11,7 +11,6 @@ const PhotoGallery = dynamic(
   () => import('@/components/ui/drawers/photo-gallery'),
 );
 const SideMenu = dynamic(() => import('@/components/ui/drawers/side-menu'));
-const Filter = dynamic(() => import('@/components/explore/filter'));
 const BookingFormModal = dynamic(
   () => import('@/components/ui/drawers/booking-form-drawer'),
 );
@@ -29,8 +28,6 @@ function renderDrawerContent(view: DRAWER_VIEW | string) {
       return <PhotoGallery />;
     case 'SIDE_MENU':
       return <SideMenu />;
-    case 'FILTER_MENU':
-      return <Filter />;
     case 'BOOKING_FORM':
       return <BookingFormModal />;
     default:

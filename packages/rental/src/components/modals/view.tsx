@@ -14,8 +14,6 @@ import { useModal, MODAL_VIEW } from '@/components/modals/context';
 import Button from '@/components/ui/button';
 
 // dynamic imports
-const SignIn = dynamic(() => import('@/components/auth/sign-in'));
-const SignUp = dynamic(() => import('@/components/auth/sign-up'));
 const AddReview = dynamic(() => import('@/components/ui/modals/add-review'));
 const ReportListing = dynamic(
   () => import('@/components/ui/modals/report-listing'),
@@ -28,10 +26,6 @@ const Searchbox = dynamic(() => import('@/components/ui/search-box'));
 
 function renderModalContent(view: MODAL_VIEW | string) {
   switch (view) {
-    case 'SIGN_IN':
-      return <SignIn className="!m-0 !p-0" />;
-    case 'SIGN_UP':
-      return <SignUp className="!m-0 !p-0" />;
     case 'ADD_REVIEW':
       return <AddReview />;
     case 'REPORT_LISTING':

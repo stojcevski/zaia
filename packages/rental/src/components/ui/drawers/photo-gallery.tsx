@@ -41,7 +41,6 @@ export default function PhotoGallery() {
               size="sm"
               className="group flex items-center hover:text-red focus:!ring-0"
               variant="text"
-              onClick={() => openModal('SHARE')}
             >
               <ShareIcon className="h-4 w-4" />
               <span className="ml-3   text-sm font-normal text-gray-dark group-hover:text-red lg:text-base">

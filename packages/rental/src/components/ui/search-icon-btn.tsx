@@ -15,7 +15,6 @@ export default function SearchIconBtn({
     <ActionIcon
       variant="text"
       className={clsx('focus:!ring-0', className)}
-      onClick={() => openModal('SEARCH_MODAL')}
     >
       <MagnifyingGlassIcon className="h-6 w-5 sm:w-6" />
     </ActionIcon>

@@ -7,9 +7,9 @@
   "scripts": {
     "clean": "lerna clean --yes && rm -rf node_modules",
     "clean:build": "lerna exec -- rm -rf .next dist out build .docz .firebase",
-    "start:rental": "lerna run dev --scope=rental",
-    "build:rental": "lerna run build --scope=rental",
-    "serve:rental": "lerna run start --scope=rental",
+    "start": "lerna run dev --scope=rental",
+    "build": "lerna run build --scope=rental",
+    "serve": "lerna run start --scope=rental",
     "lint:rental": "lerna run lint --scope=rental",
     "format:rental": "lerna run format --scope=rental",
     "format": "prettier --write .",
