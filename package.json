@@ -1,0 +1,27 @@
+{
+  "name": "zaia-suites",
+  "description": "booking site",
+  "version": "5.4.0",
+  "private": true,
+  "author": "Zaia Suites",
+  "scripts": {
+    "clean": "lerna clean --yes && rm -rf node_modules",
+    "clean:build": "lerna exec -- rm -rf .next dist out build .docz .firebase",
+    "start:rental": "lerna run dev --scope=rental",
+    "build:rental": "lerna run build --scope=rental",
+    "serve:rental": "lerna run start --scope=rental",
+    "lint:rental": "lerna run lint --scope=rental",
+    "format:rental": "lerna run format --scope=rental",
+    "format": "prettier --write .",
+    "check-format": "prettier --check .",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "husky": "^9.1.6",
+    "lerna": "^8.1.8",
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
+    "serve": "^14.2.4"
+  }
+}

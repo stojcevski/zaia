@@ -1,0 +1,7 @@
+### NextJS ###
+# Next build dir
+.next/
+
+node_modules
+*.env
+*.env.*
