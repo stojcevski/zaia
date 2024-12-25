@@ -40,8 +40,8 @@ export default function ReviewBlock({ reviewsData }: ReviewBlockTypes) {
       // }
     >
       <Text tag="h2" className="mb-2 flex items-center gap-2 text-xl md:hidden">
-        <StarIcon className="h-auto w-6" />
-        5 - 9 Reviews
+        {/* <StarIcon className="h-auto w-6" /> */}
+        Reviews
       </Text>
       <ReviewStat stats={reviewsData.stats} />
       <div className="md:mt-8">
