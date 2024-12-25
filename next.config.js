@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  env: {
+    GOOGLE_MAP_API_KEY: 'AIzaSyC2gB-F9shVW--JYJvTPhqGenmlQBMTlu4',
+  },
   reactStrictMode: true,
   images: {
     remotePatterns: [
