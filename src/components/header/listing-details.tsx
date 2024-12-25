@@ -9,7 +9,7 @@ import ProfileMenu from '@/components/header/profile-menu';
 import { useModal } from '@/components/modals/context';
 import Searchbox from '@/components/ui/search-box';
 import Button from '@/components/ui/button';
-import Logo from '@/components/ui/logo';
+import Logo from '@/components/ui/logo-image';
 import { useIsMounted } from '@/hooks/use-is-mounted';
 import Loader from '@/components/ui/loader/loader';
 
