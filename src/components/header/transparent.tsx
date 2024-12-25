@@ -17,7 +17,7 @@ export default function TransparentHeader() {
     >
       <Logo />
       <div className="flex items-center">
-        <SearchIconBtn className="sm:!text-white md:hidden" />
+        {/* <SearchIconBtn className="sm:!text-white md:hidden" /> */}
         <Menu />
       </div>
     </header>
