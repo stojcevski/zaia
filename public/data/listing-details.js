@@ -178,7 +178,7 @@ export const listingData =
         name: 'Hot Water',
       },
       {
-        img: '/images/listing-details/Wifi.svg',
+        img: '/images/listing-details/wifi.svg',
         name: 'Wifi',
       },
       {
@@ -190,7 +190,7 @@ export const listingData =
         name: 'Outdoor Shower',
       },
       {
-        img: '/images/listing-details/Cleaning Products.svg',
+        img: '/images/listing-details/Cleaning products.svg',
         name: 'Cleaning Products',
       },
       {
@@ -218,7 +218,7 @@ export const listingData =
         name: 'Iron',
       },
       {
-        img: '/images/listing-details/Tv Cable.svg',
+        img: '/images/listing-details/TV cable.svg',
         name: 'TV',
       },
       {
