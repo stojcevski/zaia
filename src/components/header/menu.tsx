@@ -32,43 +32,6 @@ const menuItems = [
     label: 'FAQ',
     path: '#faq',
   },
-  // {
-  //   id: 5,
-  //   label: 'Other Pages',
-  //   path: '',
-  //   dropdownItems: [
-  //     {
-  //       id: 1,
-  //       label: 'Vendor Profile',
-  //       path: Routes.public.userID('fabio-jaction'),
-  //     },
-  //     {
-  //       id: 2,
-  //       label: 'Listing Details',
-  //       path: '/listing/perfect-set-up-for-lake-union-cruising',
-  //     },
-  //     {
-  //       id: 3,
-  //       label: 'Coming Soon',
-  //       path: Routes.public.trips,
-  //     },
-  //     {
-  //       id: 4,
-  //       label: 'Sign In',
-  //       path: Routes.auth.signIn,
-  //     },
-  //     {
-  //       id: 5,
-  //       label: 'Sign Up',
-  //       path: Routes.auth.signUp,
-  //     },
-  //     {
-  //       id: 6,
-  //       label: 'Forgot Password',
-  //       path: Routes.auth.forgotPassword,
-  //     },
-  //   ],
-  // },
 ];
 
 export default function Menu() {

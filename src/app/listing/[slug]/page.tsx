@@ -3,6 +3,7 @@ import RelatedListingBlock from '@/components/listing-details/related-listings/r
 import ListingDetails from '@/components/listing-details/listing-details-block';
 import SubscriptionBlock from '@/components/subscription/subscription-block';
 import GalleryBlock from '@/components/listing-details/gallery-block';
+import ReserveBottomMenu from '@/components/listing-details/booking-form/reserve-bottom-menu';
 
 export default async function ListingDetailsPage({
   params,
@@ -19,6 +20,7 @@ export default async function ListingDetailsPage({
         <RelatedListingBlock />
       </div>
       <SubscriptionBlock sectionClassName="3xl:!px-12 4xl:!px-12" />
+      <ReserveBottomMenu listing={slug} />
     </>
   );
 }

@@ -10,7 +10,7 @@ export default function ListingDetailsLayout({
       <ListingDetailsHeader />
       <main className="flex-grow">{children}</main>
       <Footer className="pb-20 lg:pb-0 3xl:px-12 4xl:px-12" />
-      <ReserveBottomMenu />
+      {/* <ReserveBottomMenu /> */}
     </>
   );
 }
