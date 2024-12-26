@@ -424,7 +424,7 @@ body {
     @apply hidden
 }
 .reserve-action-floating.is-scrolling {
-	@apply grid;
+	@apply grid md:hidden;
 }
 /* add scrolling class to header  */
 .transparent-header.is-scrolling  {
