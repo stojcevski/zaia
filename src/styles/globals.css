@@ -423,6 +423,9 @@ body {
 .react-datepicker .react-datepicker__year-option:last-of-type {
     @apply hidden
 }
+.reserve-action-floating.is-scrolling {
+	@apply grid;
+}
 /* add scrolling class to header  */
 .transparent-header.is-scrolling  {
 	@apply bg-white shadow-card 2xl:py-4 transition-all;
