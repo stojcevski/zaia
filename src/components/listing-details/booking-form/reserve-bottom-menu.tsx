@@ -12,11 +12,11 @@ export default function ReserveBottomMenu({ listing }: { listing: string }) {
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 flex w-full items-center justify-between bg-white px-4 py-3 shadow-menu-shadow sm:px-6 lg:hidden">
       <div>
-        <p className="font-bold text-gray-dark">${listingData[Number(listing)].price} / night</p>
+        <p className="font-bold text-gray-dark">${listingData[Number(listing) - 1].price} / night</p>
         <p className="inline-flex items-center gap-2 text-sm text-gray-dark">
           <Staricon className="xl:w-h-5 h-4 w-4 xl:h-5" />
-          <span>{listingData[Number(listing)].reviewsData.stats.averageRating}</span>
-          <span>( {listingData[Number(listing)].reviewsData.stats.totalReview} reviews )</span>
+          <span>{listingData[Number(listing) - 1].reviewsData.stats.averageRating}</span>
+          <span>( {listingData[Number(listing) - 1].reviewsData.stats.totalReview} reviews )</span>
         </p>
       </div>
       <Button
