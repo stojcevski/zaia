@@ -134,9 +134,6 @@ export default function ReserveBottomMenu({ listing }: { listing: string }) {
             onChange={e => setEmail(e.target.value)}
             error={emailError}
           />
-          {emailError && (
-            <Text className="text-red-500 text-xs mt-1">{emailError}</Text>
-          )}
           <div className='flex flex-col gap-2 mt-4'>
             <Text className="block !text-sm text-gray-dark lg:!text-xs">
               Number of people
