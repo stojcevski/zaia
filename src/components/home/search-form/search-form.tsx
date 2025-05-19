@@ -11,6 +11,7 @@ import { Routes } from '@/config/routes';
 import { StarIcon } from '@heroicons/react/24/solid';
 import Input from '@/components/ui/form-fields/input';
 import Counter from '@/components/ui/counter';
+import Notification from '@/components/ui/notification';
 
 type QueryStringType = {
   location?: string;
@@ -28,21 +29,58 @@ export default function FindTripForm() {
     searchedLocation: '',
     searchedPlaceAPIData: [],
   });
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [notification, setNotification] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
   const randVisitors = (Math.random() * (10 - 8) + 2).toFixed(0);
 
-  const handleFormSubmit = (e: any) => {
+  const validateEmail = (email: string) => {
+    // Simple email regex
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const handleFormSubmit = async (e: any) => {
     e.preventDefault();
-    const queryObj: QueryStringType = {
+    setEmailError('');
+    if (!validateEmail(email)) {
+      setEmailError('Please enter a valid email address.');
+      return;
+    }
+    const queryObj: QueryStringType & { email: string; people: number } = {
       departureDate: format(startDate, 'yyyy-MM-dd'),
       returnDate: format(endDate, 'yyyy-MM-dd'),
+      email,
+      people: peopleCount,
     };
-    console.log(queryObj)
+    try {
+      const res = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(queryObj),
+      });
+      if (!res.ok) {
+        throw new Error('Failed to send email');
+      }
+      setNotification({ message: 'Your inquiry has been sent!', type: 'success' });
+    } catch (err) {
+      setEmailError('Failed to send email. Please try again.');
+      setNotification({ message: 'Failed to send email. Please try again.', type: 'error' });
+    }
   };
 
   return (
     <div
       className="relative z-[2] w-full max-w-[450px] rounded-lg bg-white p-6 shadow-2xl sm:m-0 sm:max-w-[380px] sm:p-7 sm:pt-9 md:max-w-[400px] md:shadow-none lg:rounded-xl xl:max-w-[460px] xl:p-9 4xl:max-w-[516px] 4xl:p-12"
     >
+      {notification && (
+        <Notification
+          message={notification.message}
+          type={notification.type}
+          onClose={() => setNotification(null)}
+        />
+      )}
       <form
         noValidate
         onSubmit={handleFormSubmit}
@@ -98,8 +136,11 @@ export default function FindTripForm() {
             inputClassName="!text-sm lg:!text-base pl-[27px] !bg-white rounded-lg border-stone-200 xl:rounded-xl"
             labelClassName="lg:!text-base !mb-2 text-gray-dark"
             placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            error={emailError}
           />
-          <div className='flex flex-col gap-2'>
+          <div className='flex flex-col gap-2 mt-4 md:mt-0'>
             <Text className="block !text-sm text-gray-dark lg:!text-xs">
               Number of people
             </Text>

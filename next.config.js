@@ -2,6 +2,9 @@
 const nextConfig = {
   env: {
     GOOGLE_MAP_API_KEY: 'AIzaSyC2gB-F9shVW--JYJvTPhqGenmlQBMTlu4',
+    GMAIL_USER: 'zaiasuites@gmail.com',
+    GMAIL_PASS: 'mtli chdm izem vqgg',
+    RECIPIENTS: 'zaiasuites@gmail.com'
   },
   reactStrictMode: true,
   images: {

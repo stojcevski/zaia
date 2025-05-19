@@ -29,6 +29,11 @@ const menuItems = [
   },
   {
     id: 5,
+    label: 'Contact',
+    path: '#contact',
+  },
+  {
+    id: 6,
     label: 'FAQ',
     path: '#faq',
   },

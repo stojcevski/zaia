@@ -32,7 +32,7 @@ const accordionData = [
 
 export default function PricingTestimonials() {
   return (
-    <div className="container-fluid w-full !max-w-[1248px] pt-12 lg:pt-20 2xl:pb-8 3xl:px-0 3xl:pt-32">
+    <div className="container-fluid w-full !max-w-[1248px] pt-12 lg:pt-20 2xl:pb-8 3xl:px-0 3xl:pt-24">
       <div className="text-center">
         <Text tag="h2" className="text-xl md:!text-2xl xl:!text-3xl">
           Frequently asked questions
