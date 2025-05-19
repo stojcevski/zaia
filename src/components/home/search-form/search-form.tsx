@@ -90,9 +90,13 @@ export default function FindTripForm() {
             tag="h1"
             className="leading-12 mb-2 !text-xl !font-black uppercase text-stone-800 sm:!text-[24px] sm:!leading-7  4xl:!text-4xl 4xl:!leading-[52px]"
           >
-            Select dates <br />
+            Select dates<br />
             & book your holiday
           </Text>
+          {/* 🟩 Primary CTA subtitle */}
+          <p className="text-base text-stone-700 font-medium mb-3">
+            Direct and commission-free.
+          </p>
           <div className="flex items-center justify-start gap-1 my-4 w-full">
             <img alt="google-logo" width={70} height={50} src={"/icons/google.png"} />
             <StarIcon color='#faca15' className="pb-px w-4" />
@@ -154,7 +158,7 @@ export default function FindTripForm() {
         </div>
         <Button
           type="submit"
-          className="w-full !py-[14px] text-sm !font-bold uppercase leading-6 md:!py-[17px] md:text-base lg:!rounded-xl 3xl:!py-[22px] mt-12 sm:mt-12 mb-3 bg-stone-900"
+          className="w-full !py-[14px] text-sm !font-bold uppercase leading-6 md:!py-[17px] md:text-base lg:!rounded-xl 3xl:!py-[22px] mt-12 sm:mt-12 mb-3 bg-stone-800 hover:bg-stone-900 text-white"
           rounded="lg"
           size="xl"
         >

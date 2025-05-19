@@ -5,6 +5,29 @@ import SubscriptionBlock from '@/components/subscription/subscription-block';
 import GalleryBlock from '@/components/listing-details/gallery-block';
 import ReserveBottomMenu from '@/components/listing-details/booking-form/reserve-bottom-menu';
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const listing = listingData[Number(slug) - 1];
+  if (!listing) return {};
+
+  return {
+    metadataBase: new URL('https://zaia-suites.com'), // Set your production domain here
+    title: `${listing.details.name} | Apartment in Gennadi, Rhodes`,
+    description: listing.shortDescription,
+    openGraph: {
+      title: `${listing.details.name} | Apartment in Gennadi, Rhodes`,
+      description: `${listing.shortDescription}`,
+      images: listing.gallery?.[0] ? [{ url: listing.gallery[0], alt: listing.details.name }] : [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${listing.details.name} | Apartment in Gennadi, Rhodes`,
+      description: `${listing.shortDescription}`,
+      images: listing.gallery?.[0] ? [listing.gallery[0]] : [],
+    },
+  };
+}
+
 export default async function ListingDetailsPage({
   params,
 }: {

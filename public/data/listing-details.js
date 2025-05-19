@@ -166,6 +166,7 @@ export const listingData =
       listingBathrooms: 1,
       totalReview: 58,
     },
+    shortDescription: "Modern holiday apartment with private balcony, full kitchen, and garden view in southern Rhodes. Walk to beach and village center.",
     description:
       "Nestled just 800m from the beach and a short 350m from the vibrant center, our property boasts 7 suites, each adorned with a perfect blend of minimal and Mediterranean style. Immerse yourself in breathtaking sea views, greeting every morning with a sunrise spectacle. Your seaside oasis awaits. \nWelcome to Suite N1 at Zàia – perched on the ground floor with a balcony and a garden view. Inside, discover the comfort of one bedroom – a cozy double bed. A well-appointed bathroom, a fully-equipped kitchen, and a cozy living room with a sofa bed. \nGennadi Village is located just 65km from Rhodes International Airport. With all the conveniences you need just a short walk away, you’ll find local tavernas, lively bars, and a well-stocked supermarket only 5 minutes on foot. For beach lovers, Gennadi’s stunning beach is only 800 meters from the suites. With its crystal-clear waters it’s the perfect place to relax under the sun or take a refreshing swim. Prasonisi is approximately 20 kilometers (about 12 miles) from Gennadi, Rhodes. Prasonisi is a popular spot for windsurfing and kite surfing, known for its unique location where the Aegean and Mediterranean seas meet, creating a stunning and dramatic landscape. It’s definitely worth a visit if you’re staying in Gennadi!",
     equipment: [

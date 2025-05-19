@@ -22,7 +22,9 @@ const satisfy = Satisfy({
 export const metadata: Metadata = {
   title: 'Zaia Suites & Living',
   description: 'Choose your accomodation for the best holiday experience.',
-  icons: ['/images/zaia.ico'],
+  icons: {
+    icon: '/images/zaia.ico',
+  },
 };
 
 export const viewport: Viewport = {
