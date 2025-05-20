@@ -35,6 +35,7 @@ export default function ReserveListingForm({ listing }: ReserveListingFormProps)
   const [notification, setNotification] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
   const [emailError, setEmailError] = useState('');
   const randVisitors = (Math.random() * (10 - 8) + 2).toFixed(0);
+  const minNights = 5;
 
   const validateEmail = (email: string) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -48,8 +49,8 @@ export default function ReserveListingForm({ listing }: ReserveListingFormProps)
       return;
     }
     const queryObj: QueryStringType & { email: string; people: number } = {
-      departureDate: format(startDate, 'yyyy-MM-dd'),
-      returnDate: format(endDate, 'yyyy-MM-dd'),
+      departureDate: format(startDate, 'dd.MM.yyyy'),
+      returnDate: format(endDate, 'dd.MM.yyyy'),
       listing,
       email,
       people: peopleCount,
@@ -85,14 +86,14 @@ export default function ReserveListingForm({ listing }: ReserveListingFormProps)
         noValidate
         onSubmit={handleFormSubmit}
       >
-        
         <DatePickerInput
           label="Checkin"
           selected={startDate}
           dateFormat="eee dd / LL / YYYY"
           onChange={(date) => {
             setStartDate(date as Date);
-            setEndDate(addDays(date as Date, 1));
+            // Set endDate to at least minNights after new startDate
+            setEndDate(addDays(date as Date, minNights));
           }}
           minDate={new Date()}
           containerClass="mb-3"
@@ -103,7 +104,7 @@ export default function ReserveListingForm({ listing }: ReserveListingFormProps)
           selected={endDate}
           dateFormat="eee dd / LL / YYYY"
           onChange={(date) => setEndDate(date as Date)}
-          minDate={endDate || new Date()}
+          minDate={addDays(startDate, minNights)}
           containerClass="mb-3"
           popperClassName="homepage-datepicker"
         />

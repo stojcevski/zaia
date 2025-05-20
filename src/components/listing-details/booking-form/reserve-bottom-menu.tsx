@@ -10,6 +10,7 @@ import DatePickerInput from '@/components/home/search-form/daterange-picker';
 import Text from '@/components/ui/typography/text';
 import Input from '@/components/ui/form-fields/input';
 import Counter from '@/components/ui/counter';
+import { addDays, format } from 'date-fns';
 
 export default function ReserveBottomMenu({ listing }: { listing: string }) {
   const [drawerSate, setDrawerState] = useAtom(drawerStateAtom);
@@ -20,6 +21,7 @@ export default function ReserveBottomMenu({ listing }: { listing: string }) {
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
   const [notification, setNotification] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
+  const minNights = 5;
 
   const validateEmail = (email: string) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -33,8 +35,8 @@ export default function ReserveBottomMenu({ listing }: { listing: string }) {
       return;
     }
     const queryObj = {
-      departureDate: startDate.toISOString().slice(0, 10),
-      returnDate: endDate.toISOString().slice(0, 10),
+      departureDate: format(startDate, 'dd.MM.yyyy'),
+      returnDate: format(endDate, 'dd.MM.yyyy'),
       listing,
       email,
       people: peopleCount,
@@ -108,7 +110,7 @@ export default function ReserveBottomMenu({ listing }: { listing: string }) {
             dateFormat="eee dd / LL / YYYY"
             onChange={(date) => {
               setStartDate(date as Date);
-              setEndDate(new Date((date as Date).getTime() + 24 * 60 * 60 * 1000));
+              setEndDate(new Date((date as Date).getTime() + minNights * 24 * 60 * 60 * 1000));
             }}
             minDate={new Date()}
             containerClass="mb-2"
@@ -119,7 +121,7 @@ export default function ReserveBottomMenu({ listing }: { listing: string }) {
             selected={endDate}
             dateFormat="eee dd / LL / YYYY"
             onChange={(date) => setEndDate(date as Date)}
-            minDate={endDate || new Date()}
+            minDate={addDays(startDate, minNights)}
             containerClass="mb-2"
             popperClassName="homepage-datepicker"
           />
@@ -156,8 +158,8 @@ export default function ReserveBottomMenu({ listing }: { listing: string }) {
           {notification && (
             <Text
               className={`mt-2 text-center font-semibold transition-opacity duration-300 ${notification.type === 'success'
-                  ? 'text-green-600'
-                  : 'text-red-600'
+                ? 'text-green-600'
+                : 'text-red-600'
                 }`}
             >
               {notification.message}

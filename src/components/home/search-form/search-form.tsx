@@ -33,6 +33,7 @@ export default function FindTripForm() {
   const [emailError, setEmailError] = useState('');
   const [notification, setNotification] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
   const randVisitors = (Math.random() * (10 - 8) + 2).toFixed(0);
+  const minNights = 5;
 
   const validateEmail = (email: string) => {
     // Simple email regex
@@ -47,8 +48,8 @@ export default function FindTripForm() {
       return;
     }
     const queryObj: QueryStringType & { email: string; people: number } = {
-      departureDate: format(startDate, 'yyyy-MM-dd'),
-      returnDate: format(endDate, 'yyyy-MM-dd'),
+      departureDate: format(startDate, 'dd.MM.yyyy'),
+      returnDate: format(endDate, 'dd.MM.yyyy'),
       email,
       people: peopleCount,
     };
@@ -117,7 +118,7 @@ export default function FindTripForm() {
           dateFormat="eee dd / LL / YYYY"
           onChange={(date) => {
             setStartDate(date as Date);
-            setEndDate(addDays(date as Date, 1));
+            setEndDate(addDays(date as Date, minNights));
           }}
           minDate={new Date()}
           containerClass="mb-3"
@@ -128,7 +129,7 @@ export default function FindTripForm() {
           selected={endDate}
           dateFormat="eee dd / LL / YYYY"
           onChange={(date) => setEndDate(date as Date)}
-          minDate={endDate || new Date()}
+          minDate={addDays(startDate, minNights)}
           containerClass="mb-3"
           popperClassName="homepage-datepicker"
         />
