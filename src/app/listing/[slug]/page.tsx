@@ -12,16 +12,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   return {
     metadataBase: new URL('https://zaia-suites.com'), // Set your production domain here
-    title: `${listing.details.name} | Apartment in Gennadi, Rhodes`,
+    title: `${listing.details.listingName} | Apartment in Gennadi, Rhodes`,
     description: listing.shortDescription,
     openGraph: {
-      title: `${listing.details.name} | Apartment in Gennadi, Rhodes`,
+      title: `${listing.details.listingName} | Apartment in Gennadi, Rhodes`,
       description: `${listing.shortDescription}`,
       images: listing.gallery?.[0] ? [{ url: listing.gallery[0], alt: listing.details.name }] : [],
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${listing.details.name} | Apartment in Gennadi, Rhodes`,
+      title: `${listing.details.listingName} | Apartment in Gennadi, Rhodes`,
       description: `${listing.shortDescription}`,
       images: listing.gallery?.[0] ? [listing.gallery[0]] : [],
     },

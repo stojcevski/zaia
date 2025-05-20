@@ -37,10 +37,24 @@ export default function ReserveBottomMenu({ listing }: { listing: string }) {
     const queryObj = {
       departureDate: format(startDate, 'dd.MM.yyyy'),
       returnDate: format(endDate, 'dd.MM.yyyy'),
-      listing,
+      listing: listingData[Number(listing) - 1].details.listingName,
       email,
       people: peopleCount,
     };
+
+    // Save to waiting list before sending email
+    await fetch('/api/waiting-list', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: queryObj.email,
+        checkin: format(startDate, 'yyyy-MM-dd'),
+        checkout: format(endDate, 'yyyy-MM-dd'),
+        people: queryObj.people,
+        listing: listingData[Number(listing) - 1].details.listingName,
+      }),
+    });
+
     try {
       const res = await fetch('/api/send-email', {
         method: 'POST',

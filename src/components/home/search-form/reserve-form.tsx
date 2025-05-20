@@ -55,6 +55,20 @@ export default function ReserveListingForm({ listing }: ReserveListingFormProps)
       email,
       people: peopleCount,
     };
+
+    // Save to waiting list before sending email
+    await fetch('/api/waiting-list', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: queryObj.email,
+        checkin: format(startDate, 'yyyy-MM-dd'),
+        checkout: format(endDate, 'yyyy-MM-dd'),
+        people: queryObj.people,
+        listing: listing,
+      }),
+    });
+
     try {
       const res = await fetch('/api/send-email', {
         method: 'POST',

@@ -53,6 +53,20 @@ export default function FindTripForm() {
       email,
       people: peopleCount,
     };
+
+    // Save to waiting list before sending email
+    await fetch('/api/waiting-list', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: queryObj.email,
+        checkin: format(startDate, 'yyyy-MM-dd'),
+        checkout: format(endDate, 'yyyy-MM-dd'),
+        people: queryObj.people,
+        listing: null, // explicitly set listing to null
+      }),
+    });
+
     try {
       const res = await fetch('/api/send-email', {
         method: 'POST',
