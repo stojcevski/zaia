@@ -32,6 +32,7 @@ export default function FindTripForm() {
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
   const [notification, setNotification] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
+  const [loading, setLoading] = useState(false);
   const randVisitors = (Math.random() * (10 - 8) + 2).toFixed(0);
   const minNights = 5;
 
@@ -43,8 +44,10 @@ export default function FindTripForm() {
   const handleFormSubmit = async (e: any) => {
     e.preventDefault();
     setEmailError('');
+    setLoading(true);
     if (!validateEmail(email)) {
       setEmailError('Please enter a valid email address.');
+      setLoading(false);
       return;
     }
     const queryObj: QueryStringType & { email: string; people: number } = {
@@ -79,9 +82,17 @@ export default function FindTripForm() {
         throw new Error('Failed to send email');
       }
       setNotification({ message: 'Your inquiry has been sent!', type: 'success' });
+      // Clear form fields
+      setEmail('');
+      setPeopleCount(1);
+      setStartDate(new Date(new Date().setDate(new Date().getDate() + 1)));
+      setEndDate(new Date(new Date().setDate(new Date().getDate() + 11)));
+      setTimeout(() => setNotification(null), 3000);
     } catch (err) {
-      setEmailError('Failed to send email. Please try again.');
       setNotification({ message: 'Failed to send email. Please try again.', type: 'error' });
+      setTimeout(() => setNotification(null), 3000);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -89,13 +100,6 @@ export default function FindTripForm() {
     <div
       className="relative z-[2] w-full max-w-[450px] rounded-lg bg-white p-6 shadow-2xl sm:m-0 sm:max-w-[380px] sm:p-7 sm:pt-9 md:max-w-[400px] md:shadow-none lg:rounded-xl xl:max-w-[460px] xl:p-9 4xl:max-w-[516px] 4xl:p-12"
     >
-      {notification && (
-        <Notification
-          message={notification.message}
-          type={notification.type}
-          onClose={() => setNotification(null)}
-        />
-      )}
       <form
         noValidate
         onSubmit={handleFormSubmit}
@@ -176,9 +180,20 @@ export default function FindTripForm() {
           className="w-full !py-[14px] text-sm !font-bold uppercase leading-6 md:!py-[17px] md:text-base lg:!rounded-xl 3xl:!py-[22px] mt-12 sm:mt-12 mb-3 bg-stone-800 hover:bg-stone-900 text-white"
           rounded="lg"
           size="xl"
+          disabled={loading}
         >
-          Check price
+          {loading ? 'Loading' : 'Check price'}
         </Button>
+        {notification && (
+          <Text
+            className={`mt-2 text-center font-semibold transition-opacity duration-300 ${notification.type === 'success'
+              ? 'text-green-600'
+              : 'text-red-600'
+              }`}
+          >
+            {notification.message}
+          </Text>
+        )}
       </form>
       <Text className=" leading-6 text-orange-500 opacity-90 font-bold sm:block 3xl:leading-8 4xl:mb-6 4xl:text-sm px-2 text-center">
         {/* {randVisitors} are looking right now */}

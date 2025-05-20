@@ -35,7 +35,7 @@ export async function POST(req: NextRequest) {
 export async function GET(req: NextRequest) {
     try {
         const result = await pool.query(
-            `SELECT id, email, checkin, checkout, people, listing FROM waiting_list ORDER BY id DESC`
+            `SELECT id, email, checkin, checkout, people, listing, created_at FROM waiting_list ORDER BY created_at ASC`
         );
         return NextResponse.json(result.rows);
     } catch (error) {

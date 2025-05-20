@@ -21,6 +21,7 @@ export default function ReserveBottomMenu({ listing }: { listing: string }) {
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
   const [notification, setNotification] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
+  const [loading, setLoading] = useState(false);
   const minNights = 5;
 
   const validateEmail = (email: string) => {
@@ -30,8 +31,10 @@ export default function ReserveBottomMenu({ listing }: { listing: string }) {
   const handleFormSubmit = async (e: any) => {
     e.preventDefault();
     setEmailError('');
+    setLoading(true);
     if (!validateEmail(email)) {
       setEmailError('Please enter a valid email address.');
+      setLoading(false);
       return;
     }
     const queryObj = {
@@ -74,6 +77,8 @@ export default function ReserveBottomMenu({ listing }: { listing: string }) {
     } catch {
       setNotification({ message: 'Failed to send email. Please try again.', type: 'error' });
       setTimeout(() => setNotification(null), 3000);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -166,8 +171,9 @@ export default function ReserveBottomMenu({ listing }: { listing: string }) {
             className="w-full !py-[14px] text-sm !font-bold uppercase leading-6 md:!py-[17px] md:text-base lg:!rounded-xl 3xl:!py-[22px] mt-4 mb-2 bg-stone-900"
             rounded="lg"
             size="xl"
+            disabled={loading}
           >
-            Check Price
+            {loading ? 'Loading' : 'Check Price'}
           </Button>
           {notification && (
             <Text

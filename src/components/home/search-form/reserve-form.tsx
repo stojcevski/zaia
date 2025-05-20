@@ -34,6 +34,7 @@ export default function ReserveListingForm({ listing }: ReserveListingFormProps)
   const [email, setEmail] = useState('');
   const [notification, setNotification] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
   const [emailError, setEmailError] = useState('');
+  const [loading, setLoading] = useState(false);
   const randVisitors = (Math.random() * (10 - 8) + 2).toFixed(0);
   const minNights = 5;
 
@@ -44,8 +45,10 @@ export default function ReserveListingForm({ listing }: ReserveListingFormProps)
   const handleFormSubmit = async (e: any) => {
     e.preventDefault();
     setEmailError('');
+    setLoading(true);
     if (!validateEmail(email)) {
       setEmailError('Please enter a valid email address.');
+      setLoading(false);
       return;
     }
     const queryObj: QueryStringType & { email: string; people: number } = {
@@ -65,7 +68,7 @@ export default function ReserveListingForm({ listing }: ReserveListingFormProps)
         checkin: format(startDate, 'yyyy-MM-dd'),
         checkout: format(endDate, 'yyyy-MM-dd'),
         people: queryObj.people,
-        listing: listing,
+        listing: queryObj.listing,
       }),
     });
 
@@ -88,6 +91,8 @@ export default function ReserveListingForm({ listing }: ReserveListingFormProps)
     } catch (err) {
       setNotification({ message: 'Failed to send email. Please try again.', type: 'error' });
       setTimeout(() => setNotification(null), 3000);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -150,8 +155,9 @@ export default function ReserveListingForm({ listing }: ReserveListingFormProps)
           className="w-full !py-[14px] text-sm !font-bold uppercase leading-6 md:!py-[17px] md:text-base lg:!rounded-xl 3xl:!py-[22px] mt-12 sm:mt-12 mb-3 bg-stone-900"
           rounded="lg"
           size="xl"
+          disabled={loading}
         >
-          Check Price
+          {loading ? 'Loading' : 'Check Price'}
         </Button>
         {notification && (
           <Text

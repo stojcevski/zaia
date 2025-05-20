@@ -31,6 +31,7 @@ function WaitingListTable() {
             <table className="min-w-full bg-white rounded-xl shadow border-0">
                 <thead>
                     <tr className="bg-gray-100">
+                        <th className="px-4 py-3 text-left font-semibold">Created At</th>
                         <th className="px-4 py-3 text-left font-semibold">Checkin Date</th>
                         <th className="px-4 py-3 text-left font-semibold">Checkout Date</th>
                         <th className="px-4 py-3 text-left font-semibold">Nights</th>
@@ -47,12 +48,14 @@ function WaitingListTable() {
                                 idx === waitingList.length - 1 ? '' : 'border-b'
                             }`}
                         >
+                            <td className="px-4 py-3">{formatDate(booking.created_at)}</td>
                             <td className="px-4 py-3">{formatDate(booking.checkin)}</td>
                             <td className="px-4 py-3">{formatDate(booking.checkout)}</td>
                             <td className="px-4 py-3">{getNights(booking.checkin, booking.checkout)}</td>
                             <td className="px-4 py-3">{booking.email}</td>
                             <td className="px-4 py-3">{booking.people}</td>
                             <td className="px-4 py-3">{booking.listing}</td>
+                            
                         </tr>
                     ))}
                 </tbody>
