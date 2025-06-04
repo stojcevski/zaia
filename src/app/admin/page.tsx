@@ -1,13 +1,13 @@
 'use client';
 
-import { ClerkProvider, SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
+import { UserButton } from '@clerk/nextjs';
 import Image from 'next/image';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { usePathname } from 'next/navigation';
 
 export function AdminHeader() {
     return (
-        <header className="w-full flex items-center justify-between px-6 py-4 bg-white text-stone-900 shadow-none">
+        <header className="w-full flex items-center justify-between px-6 py-4 bg-white text-stone-900 rounded-xl ">
             <span className="flex items-center font-bold text-lg">
                 <div className="relative h-10 w-10 overflow-hidden rounded-xl md:h-12 md:w-12 flex">
                         <Image
@@ -32,7 +32,7 @@ export function AdminSideMenu() {
     return (
         <NavigationMenu.Root
             orientation="vertical"
-            className="flex flex-col w-56 min-h-full bg-white border-r border-gray-200 py-8 px-4 rounded-xl shadow m-2"
+            className="flex flex-col w-56 min-h-full  border-r border-white py-8 px-4 rounded-xl  my-"
         >
             <NavigationMenu.List className="flex flex-col gap-2">
                 <NavigationMenu.Item>
@@ -79,8 +79,8 @@ export function AdminSideMenu() {
 export default function AdminPage() {
     return (
         <>
-            <h1 className="text-2xl font-bold mb-4">Admin Dashboard</h1>
-            <p>Welcome to Zaia Suites & Living Platform.</p>
+            <h1 className="text-2xl font-bold mb-4">Admin Platform</h1>
+            <p>Zaia Suites & Living</p>
         </>
     );
 }
