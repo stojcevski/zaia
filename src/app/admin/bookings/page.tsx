@@ -14,6 +14,11 @@ function SuiteActivityCalendar({
     bookings: any[];
     loading?: boolean;
 }) {
+    // Always call hooks at the top
+    const [hoveredDate, setHoveredDate] = useState<string | null>(null);
+    const [hoveredDateCount, setHoveredDateCount] = useState<number | null>(null);
+    const [hoveredDateBookingType, setHoveredDateBookingType] = useState<string | null>(null);
+
     // Filter bookings for this suite
     const suiteBookings = bookings.filter(b => b.listing === suite);
 
@@ -48,11 +53,6 @@ function SuiteActivityCalendar({
         count,
         level: count === 0 ? 0 : (maxLevel === 3 ? (count == 1 ? 1 : 3) : count == 1 ? 2 : 4),
     }));
-
-
-    const [hoveredDate, setHoveredDate] = useState<string | null>(null);
-    const [hoveredDateCount, setHoveredDateCount] = useState<number | null>(null);
-    const [hoveredDateBookingType, setHoveredDateBookingType] = useState<string | null>(null);
 
     return (
         <div className="max-w-[77rem] mb-8 bg-stone-200 py-4 pl-6 rounded-xl flex flex-col gap-0">
