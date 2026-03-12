@@ -54,7 +54,7 @@ export default function ReserveBottomMenu({ listing }: { listing: string }) {
         checkin: format(startDate, 'yyyy-MM-dd'),
         checkout: format(endDate, 'yyyy-MM-dd'),
         people: queryObj.people,
-        listing: listingData[Number(listing) - 1].details.listingName,
+        listing: listingData[Number(listing) - 1].details.listingShortName,
       }),
     });
 

@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { format, addDays } from 'date-fns';
-import { useRouter } from 'next/navigation';
 import DatePickerInput from '@/components/home/search-form/daterange-picker';
 import Text from '@/components/ui/typography/text';
 import Button from '@/components/ui/button';
@@ -22,7 +21,6 @@ interface ReserveListingFormProps {
 }
 
 export default function ReserveListingForm({ listing }: ReserveListingFormProps) {
-  const router = useRouter();
   const [startDate, setStartDate] = useState(new Date(new Date().setDate(new Date().getDate() + 1)));
   const [endDate, setEndDate] = useState(new Date(new Date().setDate(new Date().getDate() + 11)));
   const [searchBox, setSearchBox] = useState<any>();

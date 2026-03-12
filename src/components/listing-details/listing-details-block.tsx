@@ -23,7 +23,7 @@ export default function ListingDetails({ listing }: { listing: string }) {
         </div>
         <div className="hidden w-full max-w-sm pb-11 lg:block xl:max-w-md 3xl:max-w-lg">
           <div className="sticky top-32 4xl:top-40">
-            <ReserveListingForm listing={vendorData.details.listingName} />
+            <ReserveListingForm listing={vendorData.details.listingShortName} />
           </div>
         </div>
       </div>
