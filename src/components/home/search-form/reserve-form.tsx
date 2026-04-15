@@ -99,7 +99,7 @@ export default function ReserveListingForm({ listing }: ReserveListingFormProps)
       className="relative w-full max-w-[450px] rounded-lg bg-white p-6 shadow-card sm:m-0 sm:max-w-[380px] sm:p-7 sm:pt-9 md:max-w-[400px]  lg:rounded-xl xl:max-w-[460px] xl:p-9 4xl:max-w-[516px] 4xl:p-12  border-gray-lighter"
       style={{ zIndex: 1 }}
     >
-      <form
+      {/* <form
         noValidate
         onSubmit={handleFormSubmit}
       >
@@ -171,7 +171,15 @@ export default function ReserveListingForm({ listing }: ReserveListingFormProps)
         {emailError && (
           <Text className="text-red-500 text-xs mt-1">{emailError}</Text>
         )}
-      </form>
+      </form> */}
+      <iframe
+        src={`https://calendar-key.lovable.app/embed/booking-form?config=60e9881f-668b-4c28-b081-35650ab9fa90&listing=${listing}`}
+        width="100%"
+        height={390}
+        frameBorder="0"
+        style={{ border: "none", maxWidth: "460px" }}
+        title="Booking Form"
+      />
       <Text className=" leading-6 text-orange-500 opacity-90 font-bold sm:block 3xl:leading-8 4xl:mb-6 4xl:text-sm px-2 text-center">
         {/* {randVisitors} are looking right now */}
       </Text>

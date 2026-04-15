@@ -98,7 +98,32 @@ export default function FindTripForm() {
     <div
       className="relative z-[2] w-full max-w-[450px] rounded-lg bg-white p-6 shadow-2xl sm:m-0 sm:max-w-[380px] sm:p-7 sm:pt-9 md:max-w-[400px] md:shadow-none lg:rounded-xl xl:max-w-[460px] xl:p-9 4xl:max-w-[516px] 4xl:p-12"
     >
-      <form
+      <div className="pb-8 sm:pb-12 mb-3 sm:mb-0">
+          <Text
+            tag="h1"
+            className="leading-12 mb-2 !text-xl !font-black uppercase text-stone-800 sm:!text-[24px] sm:!leading-7  4xl:!text-4xl 4xl:!leading-[52px]"
+          >
+            Select dates<br />
+            & book your holiday
+          </Text>
+          <p className="text-base text-stone-700 font-medium mb-3">
+            Direct and commission-free.
+          </p>
+          <div className="flex items-center justify-start gap-1 my-4 w-full">
+            <img alt="google-logo" width={70} height={50} src={"/icons/google.png"} />
+            <StarIcon color='#faca15' className="pb-px w-4" />
+            <p className="ml-1 text-sm font-bold text-gray-600 ">5.0</p>
+            <span className="mx-1.5 h-1 w-1 rounded-full bg-gray-600" />
+            <a
+              href='https://www.google.com/search?sca_esv=32e55b09f5ce6c02&rlz=1C5CHFA_enSI988SI990&sxsrf=ADLYWIK_xzZVeGT4yv-3bTyr0jY6RaTzcw:1734463145104&uds=ADvngMjcH0KdF7qGWtwTBrP0nt7dxrIacCNYNxMEPQSV4V72mm1d72G8F66Z-_lWpsjiOCTTmCdP5FxVDh3dAOl54sqQ-DPaJeDTXjcz9kUiEsU9v9W8GqZtJbAEZhbsM1xjsC9PgxyqQHbr9n2zMaobpFvTcTckAkXWl25TNCWbKbiZFXSCxeU&q=Zaia+Suites+%26+Living+Reviews&si=ACC90nwjPmqJHrCEt6ewASzksVFQDX8zco_7MgBaIawvaF4-7qv7qKcyBVI5KdOkVTiq8jBFx__P9P07f8hXhUYePyER_YbFTFoMO_3qwUX0k3L7tWOZPYJMuunIqV45LjWRTaTwST-h2BS5MyZxTrEdiku6gMspGg%3D%3D&hl=en-SI&sa=X&ved=2ahUKEwjC-o7dwq-KAxVgJhAIHXJeC4IQ_4MLegQIThAN&biw=1512&bih=857&dpr=2'
+              target='blank'
+              className="text-sm font-medium text-gray-600 underline hover:no-underline"
+            >
+              23 reviews
+            </a>
+          </div>
+        </div>
+      {/* <form
         noValidate
         onSubmit={handleFormSubmit}
       >
@@ -110,7 +135,6 @@ export default function FindTripForm() {
             Select dates<br />
             & book your holiday
           </Text>
-          {/* 🟩 Primary CTA subtitle */}
           <p className="text-base text-stone-700 font-medium mb-3">
             Direct and commission-free.
           </p>
@@ -192,7 +216,15 @@ export default function FindTripForm() {
             {notification.message}
           </Text>
         )}
-      </form>
+      </form> */}
+      <iframe
+        src="https://calendar-key.lovable.app/embed/booking-form?config=60e9881f-668b-4c28-b081-35650ab9fa90"
+        width="100%"
+        height={390}
+        frameBorder="0"
+        style={{ border: "none", maxWidth: "460px", backgroundColor: "transparent" }}
+        title="Booking Form"
+      />
       <Text className=" leading-6 text-orange-500 opacity-90 font-bold sm:block 3xl:leading-8 4xl:mb-6 4xl:text-sm px-2 text-center">
         {/* {randVisitors} are looking right now */}
       </Text>

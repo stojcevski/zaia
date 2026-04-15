@@ -43,7 +43,9 @@ export default function RootLayout({ children }: React.PropsWithChildren<{}>) {
         lato.variable,
       )}
     >
-      <head />
+      <head>
+        <script src="https://calendar-key.lovable.app/hostara-booking-modal.js"></script>
+      </head>
       <body className="flex min-h-full flex-col">
         <Providers>
           {children}

@@ -84,7 +84,7 @@ export default function ReserveBottomMenu({ listing }: { listing: string }) {
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 flex flex-col w-full items-center bg-white px-4 py-3 shadow-menu-shadow sm:px-6 lg:hidden">
-      <div className="flex w-full items-center justify-between">
+      <div id="foms" className="flex w-full items-center justify-between">
         {!expanded &&
           <>
             <div>
@@ -109,83 +109,102 @@ export default function ReserveBottomMenu({ listing }: { listing: string }) {
         }
       </div>
       {expanded && (
-        <form
-          className="w-full mt-12 bg-white rounded-lg flex flex-col gap-3 relative"
-          onSubmit={handleFormSubmit}
-        >
-          {/* X button to minimize */}
+        // <form
+        //   className="w-full mt-12 bg-white rounded-lg flex flex-col gap-3 relative"
+        //   onSubmit={handleFormSubmit}
+        // >
+        //   {/* X button to minimize */}
+        //   <button
+        //     type="button"
+        //     aria-label="Close"
+        //     className="absolute -top-10 right-2 text-gray-400 hover:text-gray-700 text-2xl font-bold"
+        //     onClick={() => setExpanded(false)}
+        //     style={{ lineHeight: 1 }}
+        //   >
+        //     ×
+        //   </button>
+        //   <DatePickerInput
+        //     label="Checkin"
+        //     selected={startDate}
+        //     dateFormat="eee dd / LL / YYYY"
+        //     onChange={(date) => {
+        //       setStartDate(date as Date);
+        //       setEndDate(new Date((date as Date).getTime() + minNights * 24 * 60 * 60 * 1000));
+        //     }}
+        //     minDate={new Date()}
+        //     containerClass="mb-2"
+        //     popperClassName="homepage-datepicker"
+        //   />
+        //   <DatePickerInput
+        //     label="Checkout"
+        //     selected={endDate}
+        //     dateFormat="eee dd / LL / YYYY"
+        //     onChange={(date) => setEndDate(date as Date)}
+        //     minDate={addDays(startDate, minNights)}
+        //     containerClass="mb-2"
+        //     popperClassName="homepage-datepicker"
+        //   />
+        //   <Input
+        //     type="text"
+        //     size="xl"
+        //     className="h-10 leading-10 md:h-14 md:leading-[56px] w-full"
+        //     inputClassName="!text-sm lg:!text-base pl-[27px] !bg-white rounded-lg border-stone-200 xl:rounded-xl"
+        //     labelClassName="lg:!text-base !mb-2 text-gray-dark"
+        //     placeholder="Email"
+        //     value={email}
+        //     onChange={e => setEmail(e.target.value)}
+        //     error={emailError}
+        //   />
+        //   <div className='flex flex-col gap-2 mt-4'>
+        //     <Text className="block !text-sm text-gray-dark lg:!text-xs">
+        //       Number of people
+        //     </Text>
+        //     <Counter
+        //       count={peopleCount}
+        //       countBy={1}
+        //       onCount={(val) => setPeopleCount(val)}
+        //       buttonClassName="rounded-lg !px-2 w-[30px]"
+        //     />
+        //   </div>
+        //   <Button
+        //     type="submit"
+        //     className="w-full !py-[14px] text-sm !font-bold uppercase leading-6 md:!py-[17px] md:text-base lg:!rounded-xl 3xl:!py-[22px] mt-4 mb-2 bg-stone-900"
+        //     rounded="lg"
+        //     size="xl"
+        //     disabled={loading}
+        //   >
+        //     {loading ? 'Loading' : 'Check Price'}
+        //   </Button>
+        //   {notification && (
+        //     <Text
+        //       className={`mt-2 text-center font-semibold transition-opacity duration-300 ${notification.type === 'success'
+        //         ? 'text-green-600'
+        //         : 'text-red-600'
+        //         }`}
+        //     >
+        //       {notification.message}
+        //     </Text>
+        //   )}
+        // </form>
+        <div className='flex flex-col w-full gap-4'>
           <button
             type="button"
             aria-label="Close"
-            className="absolute -top-10 right-2 text-gray-400 hover:text-gray-700 text-2xl font-bold"
+            className="ml-auto text-gray-400 hover:text-gray-700 text-2xl font-bold"
             onClick={() => setExpanded(false)}
             style={{ lineHeight: 1 }}
           >
             ×
           </button>
-          <DatePickerInput
-            label="Checkin"
-            selected={startDate}
-            dateFormat="eee dd / LL / YYYY"
-            onChange={(date) => {
-              setStartDate(date as Date);
-              setEndDate(new Date((date as Date).getTime() + minNights * 24 * 60 * 60 * 1000));
-            }}
-            minDate={new Date()}
-            containerClass="mb-2"
-            popperClassName="homepage-datepicker"
+          <iframe
+            src={`https://calendar-key.lovable.app/embed/booking-form?config=60e9881f-668b-4c28-b081-35650ab9fa90&listing=${listing}`}
+            width="100%"
+            height={390}
+            frameBorder="0"
+            style={{ border: "none", maxWidth: "460px" }}
+            title="Booking Form"
           />
-          <DatePickerInput
-            label="Checkout"
-            selected={endDate}
-            dateFormat="eee dd / LL / YYYY"
-            onChange={(date) => setEndDate(date as Date)}
-            minDate={addDays(startDate, minNights)}
-            containerClass="mb-2"
-            popperClassName="homepage-datepicker"
-          />
-          <Input
-            type="text"
-            size="xl"
-            className="h-10 leading-10 md:h-14 md:leading-[56px] w-full"
-            inputClassName="!text-sm lg:!text-base pl-[27px] !bg-white rounded-lg border-stone-200 xl:rounded-xl"
-            labelClassName="lg:!text-base !mb-2 text-gray-dark"
-            placeholder="Email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            error={emailError}
-          />
-          <div className='flex flex-col gap-2 mt-4'>
-            <Text className="block !text-sm text-gray-dark lg:!text-xs">
-              Number of people
-            </Text>
-            <Counter
-              count={peopleCount}
-              countBy={1}
-              onCount={(val) => setPeopleCount(val)}
-              buttonClassName="rounded-lg !px-2 w-[30px]"
-            />
-          </div>
-          <Button
-            type="submit"
-            className="w-full !py-[14px] text-sm !font-bold uppercase leading-6 md:!py-[17px] md:text-base lg:!rounded-xl 3xl:!py-[22px] mt-4 mb-2 bg-stone-900"
-            rounded="lg"
-            size="xl"
-            disabled={loading}
-          >
-            {loading ? 'Loading' : 'Check Price'}
-          </Button>
-          {notification && (
-            <Text
-              className={`mt-2 text-center font-semibold transition-opacity duration-300 ${notification.type === 'success'
-                ? 'text-green-600'
-                : 'text-red-600'
-                }`}
-            >
-              {notification.message}
-            </Text>
-          )}
-        </form>
+        </div>
       )}
     </div>
   );
