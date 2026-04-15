@@ -6,6 +6,7 @@ import DrawerContainer from '@/components/drawers/view';
 import GalleryCarouselView from '@/components/gallery/view';
 import '@/styles/globals.css';
 import Providers from '@/components/providers';
+import Script from 'next/script';
 
 const lato = Lato({
   subsets: ['latin'],
@@ -44,7 +45,7 @@ export default function RootLayout({ children }: React.PropsWithChildren<{}>) {
       )}
     >
       <head>
-        <script src="https://calendar-key.lovable.app/hostara-booking-modal.js"></script>
+        {/* <script src="https://calendar-key.lovable.app/hostara-booking-modal.js"></script> */}
       </head>
       <body className="flex min-h-full flex-col">
         <Providers>
@@ -52,6 +53,10 @@ export default function RootLayout({ children }: React.PropsWithChildren<{}>) {
           <ModalContainer />
           <DrawerContainer />
           <GalleryCarouselView />
+          <Script
+            src="https://calendar-key.lovable.app/hostara-booking-modal.js"
+            strategy="afterInteractive"
+          />
         </Providers>
       </body>
     </html>
