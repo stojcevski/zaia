@@ -23,8 +23,14 @@ const satisfy = Satisfy({
 export const metadata: Metadata = {
   title: 'Zaia Suites & Living',
   description: 'Choose your accomodation for the best holiday experience.',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'Zaia Suites',
+  },
   icons: {
     icon: '/images/zaia.ico',
+    apple: '/images/apple-touch-icon.png',
   },
 };
 
