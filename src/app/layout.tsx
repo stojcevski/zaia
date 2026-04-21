@@ -51,7 +51,6 @@ export default function RootLayout({ children }: React.PropsWithChildren<{}>) {
       )}
     >
       <head>
-        {/* <script src="https://calendar-key.lovable.app/hostara-booking-modal.js"></script> */}
       </head>
       <body className="flex min-h-full flex-col">
         <Providers>
@@ -60,7 +59,7 @@ export default function RootLayout({ children }: React.PropsWithChildren<{}>) {
           <DrawerContainer />
           <GalleryCarouselView />
           <Script
-            src="https://calendar-key.lovable.app/hostara-booking-modal.js"
+            src="https://zaia-living.com/hostara-booking-modal.js"
             strategy="afterInteractive"
           />
         </Providers>

@@ -1,8 +1,4 @@
-# TripFinder Boat Documentation
-
-## Introduction
-
-Fastest E-commerce template built with `React`, `NextJS`, `TypeScript` and `Tailwind CSS`. It's very easy to use, we used `static` data. You can setup your api endpoint's very easily and your frontend team will love using it.
+Built with `React`, `NextJS`, `TypeScript` and `Tailwind CSS`.
 
 ## Requirements
 

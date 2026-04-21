@@ -218,7 +218,7 @@ export default function FindTripForm() {
         )}
       </form> */}
       <iframe
-        src="https://calendar-key.lovable.app/embed/booking-form?config=60e9881f-668b-4c28-b081-35650ab9fa90"
+        src="https://zaia-living.com/embed/booking-form?config=60e9881f-668b-4c28-b081-35650ab9fa90"
         width="100%"
         height={390}
         frameBorder="0"
