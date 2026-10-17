@@ -173,12 +173,12 @@ export default function ReserveListingForm({ listing }: ReserveListingFormProps)
         )}
       </form> */}
       <iframe
-        src={`https://zaia-living.com/embed/booking-form?config=60e9881f-668b-4c28-b081-35650ab9fa90&listing=${listing}`}
+        src={`https://zaia-living.com/embed/availability-form?config=60e9881f-668b-4c28-b081-35650ab9fa90&listing=${listing}`}
         width="100%"
         height={390}
         frameBorder="0"
         style={{ border: "none", maxWidth: "460px" }}
-        title="Booking Form"
+        title="Availability Form"
       />
       <Text className=" leading-6 text-orange-500 opacity-90 font-bold sm:block 3xl:leading-8 4xl:mb-6 4xl:text-sm px-2 text-center">
         {/* {randVisitors} are looking right now */}
