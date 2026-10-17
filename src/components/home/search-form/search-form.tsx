@@ -96,9 +96,9 @@ export default function FindTripForm() {
 
   return (
     <div
-      className="relative z-[2] w-full max-w-[450px] rounded-lg bg-white p-6 shadow-2xl sm:m-0 sm:max-w-[380px] sm:p-7 sm:pt-9 md:max-w-[400px] md:shadow-none lg:rounded-xl xl:max-w-[460px] xl:p-9 4xl:max-w-[516px] 4xl:p-12"
+      className="relative z-[2] w-full max-w-[450px] rounded-lg bg-white p-4 shadow-2xl sm:m-0 sm:max-w-[380px] sm:p-7 sm:pt-9 md:max-w-[400px] md:shadow-none lg:rounded-xl xl:max-w-[460px] xl:p-9 4xl:max-w-[516px] 4xl:p-12"
     >
-      <div className="pb-8 sm:pb-12 mb-3 sm:mb-0">
+      <div className="pb-4 sm:pb-12 mb-2 sm:mb-0">
         <Text
           tag="h1"
           className="leading-12 mb-2 !text-xl !font-black uppercase text-stone-800 sm:!text-[24px] sm:!leading-7  4xl:!text-4xl 4xl:!leading-[52px]"
@@ -220,9 +220,10 @@ export default function FindTripForm() {
       <iframe
         src="https://zaia-living.com/embed/availability-form?config=60e9881f-668b-4c28-b081-35650ab9fa90"
         width="100%"
-        height={390}
+        height={320}
+        className="sm:h-[390px]"
         frameBorder="0"
-        style={{ border: "none", maxWidth: "460px", backgroundColor: "transparent" }}
+        style={{ border: "none", maxWidth: "100%", backgroundColor: "transparent" }}
         title="Availability Form"
       />
       <Text className=" leading-6 text-orange-500 opacity-90 font-bold sm:block 3xl:leading-8 4xl:mb-6 4xl:text-sm px-2 text-center">
